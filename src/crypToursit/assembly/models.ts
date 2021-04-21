@@ -2,7 +2,8 @@ import { context, u128, PersistentVector } from 'near-sdk-as';
 
 type AccountId = string
 type PlaceId = u32 // index in places Vector
-type PlaceName = string
+export type PlaceName = string
+// export type Geolocation = number
 
 @nearBindgen
 export class Place {
@@ -19,4 +20,14 @@ export class Place {
   ) {
     this.owner = context.sender;
   }
+
+  static find(place: PlaceId): Place {
+
+    assert(place >= 0, “Place ID must be >= 0)
+    assert(place < places.length, “Place ID must be valid)
+
+    return places[place]
+  }
 }
+
+export const places = new PersistentVector<Place>('p');
