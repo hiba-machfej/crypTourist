@@ -1,5 +1,3 @@
 {
-  "workspaces": [
-    "src/thanks"
-  ]
+  "workspaces": ["src/crypTourist"]
 }

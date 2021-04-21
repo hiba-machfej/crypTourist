@@ -1,6 +1,8 @@
 'use strict';
 
 const e = React.createElement;
+import getConfig from './config.js';
+import * as nearAPI from 'near-api-js';
 
 class LikeButton extends React.Component {
   constructor(props) {

@@ -12,21 +12,21 @@ export class Place {
     public name: PlaceName,
     public description: string,
     public image: string,
-    public price: u128,
-    // public geolocation: Geolocation,
     public max_radius: u16,
+    public price: u128 = u128.Zero,
+    // public geolocation: Geolocation,
     public max_owners: u32 = 10,
     public total_owners: u32 = 10
   ) {
     this.owner = context.sender;
   }
 
-  static find(place: PlaceId): Place {
+  static find(placeId: PlaceId): Place {
 
-    assert(place >= 0, “Place ID must be >= 0)
-    assert(place < places.length, “Place ID must be valid)
+    assert(placeId >= 0, "Place ID must be >= 0")
+    assert(placeId < places.length, "Place ID must be valid")
 
-    return places[place]
+    return places[placeId]
   }
 }
 

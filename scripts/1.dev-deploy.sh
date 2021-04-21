@@ -26,7 +26,7 @@ echo --------------------------------------------
 echo
 echo "redeploying the contract"
 echo
-near dev-deploy ./build/release/thanks.wasm
+near dev-deploy ./build/release/crypTourist.wasm
 
 echo --------------------------------------------
 echo run the following commands
