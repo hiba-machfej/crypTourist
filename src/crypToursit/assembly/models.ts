@@ -19,3 +19,4 @@ export class Place {
   ) {
     this.owner = context.sender;
   }
+}
