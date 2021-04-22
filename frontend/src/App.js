@@ -29,7 +29,7 @@ const App = ({ contract, currentUser, nearConfig, wallet }) => {
   useEffect(() => {
     // TODO: don't just fetch once; subscribe!
     contract.getPlaces().then(setPlaces);
-  }, []);
+  }, [contract]);
 
   const onSubmit = (e) => {
     e.preventDefault();
