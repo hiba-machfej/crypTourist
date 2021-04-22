@@ -18,7 +18,6 @@ export function addPlace(
 
 	places.push(place);
 }
-
 export function getPlaces(): Place[] {
 	return Place.all();
 }
