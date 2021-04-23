@@ -1,4 +1,4 @@
-import { Place, places, PlaceName } from './models';
+import { PlaceId, Place, places, PlaceName } from './models';
 import { u128, Context, logging } from 'near-sdk-as';
 
 export function addPlace(
@@ -48,3 +48,14 @@ export function findPlace(placeId: u32): Place {
 // near call addPlace '{"name":"Galata Tower", "description":"abc","image":"abc","price":3,"max_radius":4 }' --accountId
 
 // near call $CONTRACT addPlace '{"name":"Galata Tower", "description":"abc","image":"abc","max_radius":4 }' --accountId hiba.testnet
+
+export function remove(placeId: PlaceId): Place {
+	// find the place
+	const place = Place.find(placeId);
+	// mark it as hidden somehow
+	place.hide()
+	// save it
+	place.save()
+	// return it
+	return place
+}
