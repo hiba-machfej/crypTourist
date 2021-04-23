@@ -24,13 +24,13 @@ echo
 echo
 echo 'About to call changePlaceName() on the contract'
 echo near call \$CONTRACT changePlaceName --account_id \$OWNER
-near call $CONTRACT changePlaceName '{"placeId":0, "placeName":"New Galata Tower"}' --accountId $OWNER
+near call $CONTRACT changePlaceName '{"placeId":1, "placeName":"Hagia Sophia"}' --accountId $OWNER
 
 echo
 echo
 echo 'About to call changeMaxRadius() on the contract'
 echo near call \$CONTRACT changeMaxRadius --account_id \$OWNER
-near call $CONTRACT changeMaxRadius '{"placeId":0, "max_radius": 10}' --accountId $OWNER
+near call $CONTRACT changeMaxRadius '{"placeId":1, "max_radius": 8}' --accountId $OWNER
 
 
 echo

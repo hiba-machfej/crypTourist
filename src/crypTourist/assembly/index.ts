@@ -25,6 +25,7 @@ export function changePlaceName(placeId: u32, placeName: PlaceName): void {
 	logging.log(place.name);
 	place.name = placeName;
 	logging.log(place.name);
+	place.save();
 }
 
 export function changeMaxRadius(placeId: u32, max_radius: u16): void {
@@ -33,6 +34,7 @@ export function changeMaxRadius(placeId: u32, max_radius: u16): void {
 	logging.log(place.max_radius);
 	place.max_radius = max_radius;
 	logging.log(place.max_radius);
+	place.save();
 }
 
 export function getPlaces(): Place[] {

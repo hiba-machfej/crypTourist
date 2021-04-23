@@ -9,6 +9,7 @@ const MAX_PLACES = 10;
 @nearBindgen
 export class Place {
 	owner: string;
+	private id: PlaceId;
 	constructor(
 		public name: PlaceName,
 		public description: string,
@@ -35,8 +36,13 @@ export class Place {
 	static find(placeId: PlaceId): Place {
 		// assert(placeId >= 0, 'Place ID must be >= 0');
 		// assert(placeId < places.length, 'Place ID must be valid');  // ERROR TS2365: Operator '<' cannot be applied to types 'u32' and 'i32'.
+		const place = places[placeId];
+		place.id = placeId;
+		return place;
+	}
 
-		return places[placeId];
+	save(): void {
+		places[this.id] = this;
 	}
 }
 
