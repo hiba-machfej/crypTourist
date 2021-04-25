@@ -1,15 +1,18 @@
 import { context, u128, PersistentVector } from 'near-sdk-as';
 
 type AccountId = string;
-type PlaceId = u32; // index in places Vector
+export type PlaceId = i32; // index in places Vector
 export type PlaceName = string;
 const MAX_PLACES = 10;
 // export type Geolocation = number
 
 @nearBindgen
 export class Place {
+
 	owner: string;
 	private id: PlaceId;
+	private isHidden: bool = false;
+
 	constructor(
 		public name: PlaceName,
 		public description: string,
@@ -34,8 +37,8 @@ export class Place {
 	}
 
 	static find(placeId: PlaceId): Place {
-		// assert(placeId >= 0, 'Place ID must be >= 0');
-		// assert(placeId < places.length, 'Place ID must be valid');  // ERROR TS2365: Operator '<' cannot be applied to types 'u32' and 'i32'.
+		assert(placeId >= 0, 'Place ID must be >= 0');
+		assert(placeId < places.length, 'Place ID must be valid');
 		const place = places[placeId];
 		place.id = placeId;
 		return place;
@@ -43,6 +46,10 @@ export class Place {
 
 	save(): void {
 		places[this.id] = this;
+	}
+
+	hide(): void {
+		this.isHidden = true
 	}
 }
 
